@@ -1,5 +1,6 @@
 package com.lwn.test.single;
 
+import cn.hutool.json.JSONUtil;
 import com.lwn.repo.mapper.StudentMapper;
 import com.lwn.test.BaseTest;
 import org.junit.Test;
@@ -12,6 +13,6 @@ public class TestOne extends BaseTest {
 
     @Test
     public void testA() {
-        System.out.println(studentMapper.selectAll());
+        System.out.println(JSONUtil.toJsonStr(studentMapper.selectAll()));
     }
 }

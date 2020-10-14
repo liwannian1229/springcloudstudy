@@ -1,4 +1,4 @@
-package com.lwn.eureka.service;
+package com.lwn.service.service;
 
 import cn.hutool.json.JSONUtil;
 import com.lwn.repo.mapper.StudentMapper;
