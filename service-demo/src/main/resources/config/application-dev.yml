@@ -1,0 +1,10 @@
+server:
+  port: 8762
+spring:
+  # mysql
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/db?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      username: root
+      password: admin

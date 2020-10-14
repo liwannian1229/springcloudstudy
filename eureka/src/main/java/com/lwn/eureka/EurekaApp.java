@@ -1,10 +1,10 @@
-package com.lwn;
+package com.lwn.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@SpringBootApplication(scanBasePackages = "com.lwn")
+@SpringBootApplication(scanBasePackages = "com.lwn.eureka")
 @EnableEurekaServer
 public class EurekaApp {
 
