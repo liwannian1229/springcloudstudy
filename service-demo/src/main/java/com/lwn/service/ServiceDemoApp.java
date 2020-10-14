@@ -10,8 +10,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @MapperScan(basePackages = "com.lwn.repo.mapper")
 public class ServiceDemoApp {
+
     public static void main(String[] args) {
         SpringApplication.run(ServiceDemoApp.class, args);
     }
-    
+
 }
