@@ -1,6 +1,6 @@
-package com.lwn.service.controller;
+package com.lwn.demo.service.controller;
 
-import com.lwn.service.service.StudentService;
+import com.lwn.demo.service.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

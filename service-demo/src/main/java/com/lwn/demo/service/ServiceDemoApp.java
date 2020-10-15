@@ -1,4 +1,4 @@
-package com.lwn.service;
+package com.lwn.demo.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

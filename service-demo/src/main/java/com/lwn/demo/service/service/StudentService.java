@@ -1,4 +1,4 @@
-package com.lwn.service.service;
+package com.lwn.demo.service.service;
 
 import cn.hutool.json.JSONUtil;
 import com.lwn.repo.mapper.StudentMapper;
