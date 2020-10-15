@@ -22,5 +22,7 @@ mybatis:
     cache-enabled: true
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 
+my:
+  key-prefix: lwn_prefix
 logging:
   config: classpath:logback-spring.xml

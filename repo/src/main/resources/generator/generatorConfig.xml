@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="generator/config.properties"/>
+    <!--    <properties resource="generator/config.properties"/>-->
 
     <context id="SMTable" targetRuntime="MyBatis3" defaultModelType="flat">
         <!--   分隔符     -->
@@ -18,7 +18,7 @@
             <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
             <property name="caseSensitive" value="false"/>
 
-            <property name="logicalDeleteColumn" value="is_del"/>
+            <property name="logicalDeleteColumn" value="is_del" />
             <!-- 逻辑删除-已删除值 -->
             <property name="logicalDeleteValue" value="1"/>
             <!-- 逻辑删除-未删除值 -->
@@ -37,10 +37,10 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库连接 -->
-        <jdbcConnection driverClass="${jdbc.driverClass}"
-                        connectionURL="${jdbc.url}"
-                        userId="${jdbc.user}"
-                        password="${jdbc.password}">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/db?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8"
+                        userId="root"
+                        password="admin">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -64,11 +64,11 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="${tableName}" domainObjectName="${javaObjectName}"
+        <table tableName="user_info" domainObjectName="UserInfo"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <!-- 这里可以单独表配置逻辑删除列和删除值，覆盖全局配置 -->
-            <property name="logicalDeleteColumn" value="is_del"/>
+            <!--            <property name="logicalDeleteColumn" value="is_del"/>-->
         </table>
     </context>
 </generatorConfiguration>

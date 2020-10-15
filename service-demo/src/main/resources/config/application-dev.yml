@@ -6,3 +6,15 @@ spring:
     hikari:
       username: root
       password: admin
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: redis123
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 5000ms
+        min-idle: 0
+        max-idle: 8
