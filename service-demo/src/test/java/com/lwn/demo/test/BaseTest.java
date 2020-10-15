@@ -1,4 +1,4 @@
-package com.lwn.test;
+package com.lwn.demo.test;
 
 import com.lwn.demo.service.ServiceDemoApp;
 import lombok.extern.slf4j.Slf4j;

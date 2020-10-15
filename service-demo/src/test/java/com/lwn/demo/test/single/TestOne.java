@@ -1,4 +1,4 @@
-package com.lwn.test.single;
+package com.lwn.demo.test.single;
 
 import org.junit.Test;
 
