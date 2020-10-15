@@ -1,4 +1,4 @@
-package com.lwn.common.model.response;
+package com.lwn.common.response;
 
 public interface ResultCode {
 

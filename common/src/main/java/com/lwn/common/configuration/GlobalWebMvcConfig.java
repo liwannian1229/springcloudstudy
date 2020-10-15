@@ -1,11 +1,11 @@
-package com.lwn.common.model.configuration;
+package com.lwn.common.configuration;
 
-import com.lwn.common.model.exception.GlobalException;
-import com.lwn.common.model.exception.InvokeException;
-import com.lwn.common.model.exception.NoAuthException;
-import com.lwn.common.model.exception.TokenInvalidException;
-import com.lwn.common.model.response.ResponseResult;
-import com.lwn.common.model.response.ResultCode;
+import com.lwn.common.exception.GlobalException;
+import com.lwn.common.exception.InvokeException;
+import com.lwn.common.exception.NoAuthException;
+import com.lwn.common.exception.TokenInvalidException;
+import com.lwn.common.response.ResponseResult;
+import com.lwn.common.response.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

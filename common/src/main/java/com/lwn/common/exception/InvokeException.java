@@ -1,4 +1,4 @@
-package com.lwn.common.model.exception;
+package com.lwn.common.exception;
 
 public class InvokeException extends GlobalException {
     public InvokeException() {

@@ -1,12 +1,11 @@
 package com.lwn.repo.util;
 
 
-import cn.hutool.core.util.PageUtil;
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
-import com.lwn.common.model.enums.OrderType;
-import com.lwn.common.model.request.PageCondition;
-import com.lwn.common.model.response.Paging;
+import com.lwn.common.enums.OrderType;
+import com.lwn.common.request.PageCondition;
+import com.lwn.common.response.Paging;
 import com.lwn.common.util.BeanFiller;
 
 import java.util.List;

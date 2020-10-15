@@ -1,4 +1,4 @@
-package com.lwn.demo.service.configurer;
+package com.lwn.demo.service.config;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonGenerator;

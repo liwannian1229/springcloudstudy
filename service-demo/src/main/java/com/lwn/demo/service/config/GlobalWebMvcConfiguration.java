@@ -1,6 +1,6 @@
-package com.lwn.demo.service.configurer;
+package com.lwn.demo.service.config;
 
-import com.lwn.common.model.configuration.GlobalWebMvcConfig;
+import com.lwn.common.configuration.GlobalWebMvcConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

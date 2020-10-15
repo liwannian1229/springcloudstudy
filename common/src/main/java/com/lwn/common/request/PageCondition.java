@@ -1,6 +1,6 @@
-package com.lwn.common.model.request;
+package com.lwn.common.request;
 
-import com.lwn.common.model.enums.OrderType;
+import com.lwn.common.enums.OrderType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;

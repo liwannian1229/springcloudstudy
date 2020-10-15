@@ -1,4 +1,4 @@
-package com.lwn.demo.service.configurer;
+package com.lwn.demo.service.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

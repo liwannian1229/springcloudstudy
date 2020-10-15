@@ -1,4 +1,4 @@
-package com.lwn.common.model.enums;
+package com.lwn.common.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
