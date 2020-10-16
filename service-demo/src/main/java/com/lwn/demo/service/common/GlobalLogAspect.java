@@ -36,7 +36,7 @@ public class GlobalLogAspect {
     public void doBefore(JoinPoint joinPoint) {
 //        User user = userContext.getUser();
         log.info("请求日志");
-//        if (user != null) {
+//        if (null != user) {
 //            log.info(String.format("UserId: %s", user.getId()));
 //        }
 

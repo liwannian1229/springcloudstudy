@@ -139,7 +139,7 @@ public class RedisCacheService implements CacheService {
         Long expire = redisTemplate.getExpire(prefixed(key), TimeUnit.SECONDS);
 
         // 1秒的延迟
-        if (expire != null && expire > 1) {
+        if (null != expire && expire > 1) {
             redisTemplate.opsForValue().set(prefixed(key), value, expire, TimeUnit.SECONDS);
         }
     }
