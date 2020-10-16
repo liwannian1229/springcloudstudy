@@ -1,6 +1,7 @@
 package com.lwn.demo.service.common;
 
 import cn.hutool.core.util.StrUtil;
+import com.lwn.common.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.*;
@@ -39,14 +40,14 @@ public class RedisCacheService implements CacheService {
     private ZSetOperations<String, Object> zSetOps;
 
     public void set(String key, Object value, long expire) {
-        valueOps.set(prefixed(key), value);
+        valueOps.set(prefixed(key), JsonUtil.toJson_Google(value));
         if (expire != NOT_EXPIRE) {
             redisTemplate.expire(prefixed(key), expire, TimeUnit.SECONDS);
         }
     }
 
     public void setNoPrefix(String key, Object value, long expire) {
-        valueOps.set(key, value);
+        valueOps.set(key, JsonUtil.toJson_Google(value));
         if (expire != NOT_EXPIRE) {
             redisTemplate.expire(key, expire, TimeUnit.SECONDS);
         }

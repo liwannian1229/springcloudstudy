@@ -10,10 +10,9 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,5 +28,12 @@ public class StudentController {
     private ResponseResult<Paging<Student>> get(@Validated @RequestBody PageCondition pageCondition) {
 
         return ResponseResult.successResult(studentService.get(pageCondition));
+    }
+
+    @GetMapping("/getStudent")
+    @ApiOperation(value = "拿到缓存值")
+    private ResponseResult<List<Student>> getStudent() {
+
+        return ResponseResult.successResult(studentService.getStudentList());
     }
 }

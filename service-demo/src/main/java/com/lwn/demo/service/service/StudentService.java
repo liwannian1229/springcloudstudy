@@ -1,7 +1,9 @@
 package com.lwn.demo.service.service;
 
+import com.alibaba.fastjson.TypeReference;
 import com.lwn.common.request.PageCondition;
 import com.lwn.common.response.Paging;
+import com.lwn.common.util.JsonUtil;
 import com.lwn.common.util.QueryHelper;
 import com.lwn.demo.service.common.RedisCacheService;
 import com.lwn.repo.entity.Student;
@@ -24,9 +26,16 @@ public class StudentService {
 
     public Paging<Student> get(PageCondition pageCondition) {
         List<Student> students = studentMapper.selectAll();
-        redisCacheService.set("students", students, 10);
+        redisCacheService.set("students", students, 600);
         QueryHelper.setupPageCondition(pageCondition);
 
         return QueryHelper.getPaging(students);
+    }
+
+    public List<Student> getStudentList() {
+        String students = redisCacheService.getString("students", 600);
+
+        return JsonUtil.fromJson_Alibaba(students, new TypeReference<List<Student>>() {
+        });
     }
 }
