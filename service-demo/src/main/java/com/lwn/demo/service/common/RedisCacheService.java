@@ -170,11 +170,13 @@ public class RedisCacheService implements CacheService {
      */
     public void deleteKeys(String key) {
         Set<String> keys = redisTemplate.keys(prefixed(key) + "*");
+        assert null != keys;
         redisTemplate.delete(keys);
     }
 
     public void deleteNoPrefixedKeys(String key) {
         Set<String> keys = redisTemplate.keys(key + "*");
+        assert null != keys;
         redisTemplate.delete(keys);
     }
 
