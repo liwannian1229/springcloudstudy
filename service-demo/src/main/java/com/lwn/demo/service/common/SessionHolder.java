@@ -19,14 +19,14 @@ public class SessionHolder {
 
     public static HttpSession getSession() {
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        assert sra != null;
+        assert null != sra;
         HttpServletRequest request = sra.getRequest();
         return request.getSession(true);
     }
 
     public static HttpServletRequest getRequest() {
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (sra == null) {
+        if (null == sra) {
             return null;
         }
         return sra.getRequest();
@@ -34,7 +34,7 @@ public class SessionHolder {
 
     public static String getRemoteIp() {
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (sra == null) {
+        if (null == sra) {
             return null;
         }
         String ip = sra.getRequest().getRemoteHost();

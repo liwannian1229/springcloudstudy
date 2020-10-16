@@ -1,6 +1,8 @@
 package com.lwn.demo.service.service;
 
-import cn.hutool.json.JSONUtil;
+import com.lwn.common.request.PageCondition;
+import com.lwn.common.response.Paging;
+import com.lwn.common.util.QueryHelper;
 import com.lwn.demo.service.common.RedisCacheService;
 import com.lwn.repo.entity.Student;
 import com.lwn.repo.mapper.StudentMapper;
@@ -20,10 +22,11 @@ public class StudentService {
     @Autowired
     private RedisCacheService redisCacheService;
 
-    public String get() {
+    public Paging<Student> get(PageCondition pageCondition) {
         List<Student> students = studentMapper.selectAll();
         redisCacheService.set("students", students, 10);
+        QueryHelper.setupPageCondition(pageCondition);
 
-        return JSONUtil.toJsonStr(students);
+        return QueryHelper.getPaging(students);
     }
 }

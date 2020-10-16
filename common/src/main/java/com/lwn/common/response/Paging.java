@@ -38,7 +38,7 @@ public class Paging<T> {
         this.pageSize = phPage.getPageSize();
         this.totalCount = phPage.getTotal();
         this.pageCount = phPage.getPages();
-        if (phPage.getList() == null) {
+        if (null == phPage.getList()) {
             this.data = new ArrayList<>();
         } else {
             this.data = phPage.getList();

@@ -76,7 +76,7 @@ public class RedisCacheService implements CacheService {
             redisTemplate.expire(prefixed(key), expire, TimeUnit.SECONDS);
         }
 
-        if (value == null) {
+        if (null == value) {
 
             return null;
         }
@@ -104,7 +104,7 @@ public class RedisCacheService implements CacheService {
             redisTemplate.expire(key, expire, TimeUnit.SECONDS);
         }
 
-        if (value == null) {
+        if (null == value) {
 
             return null;
         }
@@ -149,7 +149,7 @@ public class RedisCacheService implements CacheService {
         if (expire != NOT_EXPIRE) {
             redisTemplate.expire(prefixed(key), expire, TimeUnit.SECONDS);
         }
-        if (value == null) {
+        if (null == value) {
             return null;
         }
         return value.toString();

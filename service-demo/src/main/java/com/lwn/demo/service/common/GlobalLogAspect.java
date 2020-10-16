@@ -42,7 +42,7 @@ public class GlobalLogAspect {
 
         HttpServletRequest request = SessionHolder.getRequest();
 
-        if (request != null) {
+        if (null != request) {
             log.info("------request------");
             log.info("URL:" + request.getRequestURL().toString());
             log.info("METHOD:" + request.getMethod());
@@ -59,7 +59,7 @@ public class GlobalLogAspect {
         if (log.isDebugEnabled()) {
             Object[] args = joinPoint.getArgs();
             log.debug("method signature: " + joinPoint.getSignature());
-            if (args != null) {
+            if (null != args) {
                 for (Object arg : args) {
                     try {
                         log.debug(JSONUtil.toJsonStr(arg));

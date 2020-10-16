@@ -1,4 +1,4 @@
-package com.lwn.repo.util;
+package com.lwn.common.util;
 
 
 import cn.hutool.core.util.StrUtil;
@@ -6,7 +6,6 @@ import com.github.pagehelper.PageHelper;
 import com.lwn.common.enums.OrderType;
 import com.lwn.common.request.PageCondition;
 import com.lwn.common.response.Paging;
-import com.lwn.common.util.BeanFiller;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,7 @@ public class QueryHelper {
     public static String createFullLikeFilterText(String filterText) {
         String validFilter = null;
 
-        if (filterText != null) {
+        if (null != filterText) {
             validFilter = "%" + StrUtil.trim(filterText) + "%";
         }
 
@@ -34,7 +33,7 @@ public class QueryHelper {
     }
 
     public static void setupPageCondition(PageCondition pageCondition, String sort, OrderType orderType) {
-        if (StrUtil.isBlank(sort) || orderType == null) {
+        if (StrUtil.isBlank(sort) || null == orderType) {
 
             throw new RuntimeException("order error");
         }
@@ -85,11 +84,9 @@ public class QueryHelper {
     }
 
     private static String getSortString(Map<String, String> mapping, PageCondition pageCondition) {
-        if (pageCondition.getSort() != null) {
+        if (null != pageCondition.getSort()) {
             String orderBy = mapping.get(pageCondition.getSort());
-            if (orderBy == null) {
-
-            } else {
+            if (null != orderBy) {
                 return String.format("%s %s", orderBy, pageCondition.getOrder().getValue());
             }
         }
