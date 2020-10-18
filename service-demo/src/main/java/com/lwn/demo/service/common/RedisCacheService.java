@@ -82,6 +82,9 @@ public class RedisCacheService implements CacheService {
             return null;
         }
 
+        // isPrimitive()方法用于检查此Class对象是否表示原始类型。
+        // isPrimitive()方法是一种非静态方法，只能通过类对象访问，如果尝试使用类名称访问该方法，则会收到错误消息。
+        // isPrimitive()方法在检查基元时不会引发异常。
         if (clazz.isPrimitive()) {
 
             return (T) value;
