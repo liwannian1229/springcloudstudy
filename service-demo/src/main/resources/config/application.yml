@@ -8,7 +8,9 @@ spring:
     active: dev
   application:
     name: service-demo
-
+  devtools:
+    restart:
+      enabled: true
 eureka:
   client:
     serviceUrl:
