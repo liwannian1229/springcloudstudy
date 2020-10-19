@@ -24,7 +24,7 @@ public class StudentService {
     @Autowired
     private RedisCacheService redisCacheService;
 
-    public Paging<Student> get(PageCondition pageCondition) {
+    public Paging<Student> getPageStudentList(PageCondition pageCondition) {
         List<Student> studentList = studentMapper.selectAll();
         redisCacheService.set("studentList", JsonUtil.toJson_Google(studentList), 600);
         QueryHelper.setupPageCondition(pageCondition);
@@ -33,7 +33,7 @@ public class StudentService {
     }
 
     public List<Student> getStudentList() {
-        String students = redisCacheService.getString("students", 600);
+        String students = redisCacheService.getString("studentList", 600);
 
         return JsonUtil.fromJson_Alibaba(students, new TypeReference<List<Student>>() {
         });

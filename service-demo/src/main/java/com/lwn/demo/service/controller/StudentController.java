@@ -23,16 +23,16 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/getStudentInfo")
+    @PostMapping("/getPageStudentList")
     @ApiOperation(value = "获取方法")
-    private ResponseResult<Paging<Student>> get(@Validated @RequestBody PageCondition pageCondition) {
+    private ResponseResult<Paging<Student>> getPageStudentList(@Validated @RequestBody PageCondition pageCondition) {
 
-        return ResponseResult.successResult(studentService.get(pageCondition));
+        return ResponseResult.successResult(studentService.getPageStudentList(pageCondition));
     }
 
-    @GetMapping("/getStudent")
+    @GetMapping("/getStudentList")
     @ApiOperation(value = "拿到缓存值")
-    private ResponseResult<List<Student>> getStudent() {
+    private ResponseResult<List<Student>> getStudentList() {
 
         return ResponseResult.successResult(studentService.getStudentList());
     }
