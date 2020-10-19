@@ -25,11 +25,11 @@ public class StudentService {
     private RedisCacheService redisCacheService;
 
     public Paging<Student> get(PageCondition pageCondition) {
-        List<Student> students = studentMapper.selectAll();
-        redisCacheService.set("students", students, 600);
+        List<Student> studentList = studentMapper.selectAll();
+        redisCacheService.set("studentList", JsonUtil.toJson_Google(studentList), 600);
         QueryHelper.setupPageCondition(pageCondition);
 
-        return QueryHelper.getPaging(students);
+        return QueryHelper.getPaging(studentList);
     }
 
     public List<Student> getStudentList() {
