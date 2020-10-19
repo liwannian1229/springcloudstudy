@@ -39,6 +39,10 @@ public class RedisCacheService implements CacheService {
     @Autowired
     private ZSetOperations<String, Object> zSetOps;
 
+    private String prefixed(String key) {
+        return StrUtil.isEmpty(keyPrefix) ? key : keyPrefix + "_" + key;
+    }
+
     public void set(String key, Object value, long expire) {
         valueOps.set(prefixed(key), value);
         if (expire != NOT_EXPIRE) {
@@ -93,6 +97,11 @@ public class RedisCacheService implements CacheService {
         try {
             if (value instanceof Number) {
                 Method method = clazz.getMethod("valueOf", String.class);
+
+                //Method类的invoke(Object obj,Object args[])方法接收的参数必须为对象，返回值总是对象。
+                //如果参数为基本类型数据，必须转换为相应的包装类型的对象。
+
+                //cast()方法将此Object强制转换为该Class或此Class对象表示的接口。
                 return clazz.cast(method.invoke("valueOf", value.toString()));
             }
         } catch (Exception ignored) {
@@ -182,11 +191,6 @@ public class RedisCacheService implements CacheService {
         Set<String> keys = redisTemplate.keys(key + "*");
         assert null != keys;
         redisTemplate.delete(keys);
-    }
-
-
-    private String prefixed(String key) {
-        return StrUtil.isEmpty(keyPrefix) ? key : keyPrefix + "_" + key;
     }
 
 
