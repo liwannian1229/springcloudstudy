@@ -40,14 +40,14 @@ public class RedisCacheService implements CacheService {
     private ZSetOperations<String, Object> zSetOps;
 
     public void set(String key, Object value, long expire) {
-        valueOps.set(prefixed(key), JsonUtil.toJson_Google(value));
+        valueOps.set(prefixed(key), value);
         if (expire != NOT_EXPIRE) {
             redisTemplate.expire(prefixed(key), expire, TimeUnit.SECONDS);
         }
     }
 
     public void setNoPrefix(String key, Object value, long expire) {
-        valueOps.set(key, JsonUtil.toJson_Google(value));
+        valueOps.set(key, value);
         if (expire != NOT_EXPIRE) {
             redisTemplate.expire(key, expire, TimeUnit.SECONDS);
         }
@@ -190,10 +190,6 @@ public class RedisCacheService implements CacheService {
     }
 
 
-    public Long leftPush(String key, Object value) {
-        return leftPush(key, value, NOT_EXPIRE);
-    }
-
     /**
      * 从key列表左边（从头部）插入值
      *
@@ -210,8 +206,8 @@ public class RedisCacheService implements CacheService {
         return size;
     }
 
-    public Long leftPushAll(String key, Collection<Object> collection) {
-        return leftPushAll(key, collection, NOT_EXPIRE);
+    public Long leftPush(String key, Object value) {
+        return leftPush(key, value, NOT_EXPIRE);
     }
 
     public Long leftPushAll(String key, Collection<Object> collection, long expire) {
@@ -220,6 +216,10 @@ public class RedisCacheService implements CacheService {
             redisTemplate.expire(prefixed(key), expire, TimeUnit.SECONDS);
         }
         return size;
+    }
+
+    public Long leftPushAll(String key, Collection<Object> collection) {
+        return leftPushAll(key, collection, NOT_EXPIRE);
     }
 
     /**
